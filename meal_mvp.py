@@ -80,11 +80,22 @@ def shopping_list(menu):
         dish = m["main"]["dish"]
         items[dish] = items.get(dish, 0) + 1
     return items
+def nutrition_score(menu):
+    total_protein = sum([m["main"]["protein"] for m in menu])
+    avg_protein = round(total_protein / 7, 1)
+
+    protein_score = round(min((avg_protein / 60) * 100, 100), 1)
+
+    return {
+        "avg_protein": avg_protein,
+        "protein_score": protein_score
+    }
 
 # ==========================
 # ④ LINE用整形
 # ==========================
-def format_line_message(menu, shopping, rule_result):
+def format_line_message(menu, shopping, rule_result, nutrition):
+
     msg = "【今週の献立】\n"
 
     for m in menu:
@@ -100,6 +111,9 @@ def format_line_message(menu, shopping, rule_result):
         msg += "※予算オーバー\n"
 
     return msg
+    msg += "\n【栄養スコア】\n"
+    msg += f"平均タンパク質/日: {nutrition['avg_protein']}g\n"
+    msg += f"タンパク質スコア: {nutrition['protein_score']}点\n"
 
 # ==========================
 # 実行制御（最大50回再試行）
@@ -114,7 +128,9 @@ def run_meal_agent():
 
     rule_result = rule_check(menu)
     shopping = shopping_list(menu)
-    message = format_line_message(menu, shopping, rule_result)
+   nutrition = nutrition_score(menu)
+message = format_line_message(menu, shopping, rule_result, nutrition)
+
     return message
 
 
