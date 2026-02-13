@@ -4,14 +4,14 @@ DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
 
 # 主菜（最低7品以上）
 MAINS = [
-    {"dish": "鶏むね照り焼き", "type": "meat", "cost": 900},
-    {"dish": "豚こま生姜焼き", "type": "meat", "cost": 1000},
-    {"dish": "ハンバーグ", "type": "meat", "cost": 1200},
-    {"dish": "カレー", "type": "meat", "cost": 1300},
-    {"dish": "鮭の塩焼き", "type": "fish", "cost": 1100},
-    {"dish": "サバ味噌煮", "type": "fish", "cost": 950},
-    {"dish": "ブリ照り焼き", "type": "fish", "cost": 1200},
-    {"dish": "アジ南蛮", "type": "fish", "cost": 1000},
+    {"dish": "鶏むね照り焼き", "type": "meat", "cost": 900, "protein": 55},
+    {"dish": "豚こま生姜焼き", "type": "meat", "cost": 1000, "protein": 50},
+    {"dish": "ハンバーグ", "type": "meat", "cost": 1200, "protein": 55},
+    {"dish": "カレー", "type": "meat", "cost": 1300, "protein": 40},
+    {"dish": "鮭の塩焼き", "type": "fish", "cost": 1100, "protein": 45},
+    {"dish": "サバ味噌煮", "type": "fish", "cost": 950, "protein": 45},
+    {"dish": "ブリ照り焼き", "type": "fish", "cost": 1200, "protein": 45},
+    {"dish": "アジ南蛮", "type": "fish", "cost": 1000, "protein": 40},
 ]
 
 SIDES = [
